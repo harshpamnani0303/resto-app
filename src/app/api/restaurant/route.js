@@ -10,3 +10,11 @@ export async function GET() {
     
     return NextResponse.json({ result: data })
 }
+
+export async function POST(request) {
+    let palyload = await request.json()
+    await mongoose.connect(process.env.MONGODB_URI)
+    let restaurant = new restaurantSchema(palyload)
+    const result = await restaurant.save()
+    return NextResponse.json({ result,succuess: true })
+}
