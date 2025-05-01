@@ -1,26 +1,49 @@
-.input-wrapper{
+.input-wrapper {
     margin: 10px;
 }
 
-.input-field{
+.input-field {
     width: 200px;
     height: 30px;
 }
 
-.button{
+.button {
     width: 200px;
     height: 30px;
 }
 
-.container{
+.container {
     text-align: center;
 }
 
-.button-link{
+.button-link {
     border: 0;
     cursor: pointer;
     background: transparent;
     color: skyblue;
     margin: 20px;
     font-size: 20px;
+}
+
+.input-error {
+    position: absolute;
+    padding: 8px;
+    color: red;
+    font-size: 15px;
+}
+
+table,
+td,
+th {
+    border: 1px solid black;
+    border-collapse: collapse;
+    padding: 10px;
+
+}
+table td button{
+    margin: 5px;
+}
+
+table img{
+    width: 80px;
 }
