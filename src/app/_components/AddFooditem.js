@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-const AddFooditem = () => {
+const AddFooditem = (props) => {
     const [foodName, setFoodName] = useState("");
     const [price, setPrice] = useState("");
     const [path, setPath] = useState("");
@@ -33,6 +33,7 @@ const AddFooditem = () => {
             setPrice("");
             setPath("");
             setDescription("");
+            props.setAddItem(false);
         }
         else {
             alert("Error adding food item");
