@@ -32,6 +32,8 @@ const EditFooditem = (props) => {
         }
     }
 
+
+
     
     const handleEditFooditem = async () => {
         if (!foodName || !price || !path || !description) {
@@ -41,6 +43,21 @@ const EditFooditem = (props) => {
             setError(false);
         }
 
+        let response = await fetch("http://localhost:3000/api/restaurant/foods/edit/" + id, {
+            method:"PUT",
+            body: JSON.stringify({
+                name: foodName,
+                price: price,
+                img_path: path,
+                description: description
+            }),
+        })
+
+        response = await response.json();
+        
+        if(response.success){
+            router.push('../dashboard');
+        }
 
     }
     return (

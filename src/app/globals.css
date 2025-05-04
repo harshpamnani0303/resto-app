@@ -1,3 +1,59 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+*:focus{
+    outline: none;
+}
+
+.header-wrapper{
+    display: flex;
+    justify-content: space-between;
+    height: 80px;
+    align-items: center;
+}
+
+.header-wrapper ul{
+    display: flex; 
+}
+
+.header-wrapper ul li{
+    list-style: none;
+    padding: 5px;
+}
+
+.header-wrapper ul li a{
+    text-decoration: none;
+    color: black;
+    font-size: 20px;
+}
+
+.header-wrapper ul li button{
+    background-color: transparent;
+    border: none;
+    color: blueviolet;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+.footer-wrapper{
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+    font-style: 10px;
+    background: #fff;
+    
+}
+
+.input-error{
+    position: absolute;
+    padding: 8px;
+    color: red;
+    font-size: 15px;
+}
+
 .input-wrapper {
     margin: 10px;
 }
@@ -46,4 +102,90 @@ table td button{
 
 table img{
     width: 80px;
+}
+
+.main-page-banner{
+    width: 100%;
+    background-image: url("https://i.pinimg.com/736x/d1/44/28/d144283cc161e38fa98c402e4a336a0b.jpg");
+    background-color: rgb(0, 0,0 , 0.6);
+    background-blend-mode: multiply;
+    padding: 30px;
+    height: 300px;
+    color: white;
+    text-align: center;
+}
+
+.input-wrapper{
+    background-color: #fff;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin: auto;
+    width: 60%;
+}
+
+.select-input{
+    height: 40px;
+    border: none;
+    width: 25%;
+    padding-left: 15px;
+}
+.search-input{
+    height: 40px;
+    border: none;
+    width: 45%;
+    border-left : 1px solid #ccc;
+    padding-left: 15px;
+}
+
+.location-list{
+    color: #000;
+    list-style: none;
+    text-align: left;
+    position:  absolute;
+    background-color: #fff;
+    padding: 0;
+    margin: 5px;
+    margin-left: -6px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+}
+
+.location-list li{
+    width: 180px;
+    padding: 5px;
+    cursor: pointer;
+    border-bottom: 1px solid #ccc;
+}
+
+.restaurant-listing-container{
+    display: flex;
+    flex-direction: row;
+    flex-wrap:wrap;
+    margin-top: 40px;
+    margin-bottom: 50px;
+}
+
+.restaurant-wrapper{
+    width: 45%;
+    background-color: orange;
+    margin: 10px;
+    padding: 10px;
+    border: 1px solid #aaa;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.restaurant-wrapper .heading-wrapper , .restaurant-wrapper .address-wrapper{
+    padding-left: 15px;
+    display: flex;
+    justify-content: flex-start;
+}
+
+.restaurant-wrapper h5{
+    margin-left: 15px;
+}
+
+.restaurant-wrapper .address{
+    margin-left: 5px;
 }
