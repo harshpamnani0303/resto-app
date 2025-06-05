@@ -1,35 +1,36 @@
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
-*:focus{
+
+*:focus {
     outline: none;
 }
 
-.header-wrapper{
+.header-wrapper {
     display: flex;
     justify-content: space-between;
     height: 80px;
     align-items: center;
 }
 
-.header-wrapper ul{
-    display: flex; 
+.header-wrapper ul {
+    display: flex;
 }
 
-.header-wrapper ul li{
+.header-wrapper ul li {
     list-style: none;
     padding: 5px;
 }
 
-.header-wrapper ul li a{
+.header-wrapper ul li a {
     text-decoration: none;
     color: black;
     font-size: 20px;
 }
 
-.header-wrapper ul li button{
+.header-wrapper ul li button {
     background-color: transparent;
     border: none;
     color: blueviolet;
@@ -37,17 +38,17 @@
     cursor: pointer;
 }
 
-.footer-wrapper{
+.footer-wrapper {
     position: fixed;
     bottom: 0;
     width: 100%;
     text-align: center;
     font-style: 10px;
     background: #fff;
-    
+
 }
 
-.input-error{
+.input-error {
     position: absolute;
     padding: 8px;
     color: red;
@@ -96,18 +97,20 @@ th {
     padding: 10px;
 
 }
-table td button{
+
+table td button {
     margin: 5px;
 }
 
-table img{
+table img {
     width: 80px;
 }
 
-.main-page-banner{
+.main-page-banner,
+.restaurant-page-banner {
     width: 100%;
     background-image: url("https://i.pinimg.com/736x/d1/44/28/d144283cc161e38fa98c402e4a336a0b.jpg");
-    background-color: rgb(0, 0,0 , 0.6);
+    background-color: rgb(0, 0, 0, 0.6);
     background-blend-mode: multiply;
     padding: 30px;
     height: 300px;
@@ -115,34 +118,35 @@ table img{
     text-align: center;
 }
 
-.input-wrapper{
+.input-wrapper {
     background-color: #fff;
     padding: 5px;
-    border: 1px solid #ccc;
+    /* border: 1px solid #ccc; */
     border-radius: 5px;
     margin: auto;
     width: 60%;
 }
 
-.select-input{
+.select-input {
     height: 40px;
     border: none;
     width: 25%;
     padding-left: 15px;
 }
-.search-input{
+
+.search-input {
     height: 40px;
     border: none;
     width: 45%;
-    border-left : 1px solid #ccc;
+    border-left: 1px solid #ccc;
     padding-left: 15px;
 }
 
-.location-list{
+.location-list {
     color: #000;
     list-style: none;
     text-align: left;
-    position:  absolute;
+    position: absolute;
     background-color: #fff;
     padding: 0;
     margin: 5px;
@@ -151,22 +155,22 @@ table img{
     border-radius: 3px;
 }
 
-.location-list li{
+.location-list li {
     width: 180px;
     padding: 5px;
     cursor: pointer;
     border-bottom: 1px solid #ccc;
 }
 
-.restaurant-listing-container{
+.restaurant-listing-container {
     display: flex;
     flex-direction: row;
-    flex-wrap:wrap;
+    flex-wrap: wrap;
     margin-top: 40px;
     margin-bottom: 50px;
 }
 
-.restaurant-wrapper{
+.restaurant-wrapper {
     width: 45%;
     background-color: orange;
     margin: 10px;
@@ -176,16 +180,69 @@ table img{
     cursor: pointer;
 }
 
-.restaurant-wrapper .heading-wrapper , .restaurant-wrapper .address-wrapper{
+.restaurant-wrapper .heading-wrapper,
+.restaurant-wrapper .address-wrapper {
     padding-left: 15px;
     display: flex;
     justify-content: flex-start;
 }
 
-.restaurant-wrapper h5{
+.restaurant-wrapper h5 {
     margin-left: 15px;
 }
 
-.restaurant-wrapper .address{
+.restaurant-wrapper .address {
     margin-left: 5px;
+}
+
+.restaurant-page-banner h1 {
+    padding-top: 50px;
+    font-size: 65px;
+}
+
+.deatil-wrapper {
+    display: flex;
+    background-color: orange;
+    height: 70px;
+    justify-content: space-evenly;
+    padding-top: 20px;
+
+}
+
+.deatil-wrapper h4 {
+    width: 50%;
+
+}
+
+.food-item-wrapper {
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+.food-item-wrapper .list-item{
+    padding: 20px;
+    color:orange;
+    font-weight: bold;
+    border-bottom: 1px solid orange;
+    display: flex;
+    text-transform: capitalize;
+}
+
+.food-item-wrapper .list-item button {
+    color: #fff;
+    border: none;
+    padding: 5px;
+    border-radius: 4px;
+    background-color: orange;
+    cursor: pointer;
+}
+
+.food-item-wrapper .list-item img {
+    width: 100px;
+    padding-right: 20px;
+    border-radius:30% ;
+}
+
+.food-item-wrapper .list-item .description {
+    font-weight: lighter;
 }
