@@ -1,0 +1,87 @@
+.container {
+  max-width: 500px;
+  margin: 40px auto;
+  padding: 30px;
+  background: rgba(255, 255, 255, 0.85);
+  border-radius: 20px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+  animation: fadeIn 0.6s ease-in-out;
+}
+
+.container h1 {
+  text-align: center;
+  color: #333;
+  margin-bottom: 30px;
+  font-size: 28px;
+  font-weight: 700;
+}
+
+.input-wrapper {
+  margin-bottom: 20px;
+  animation: slideUp 0.5s ease;
+}
+
+.input-field {
+  width: 100%;
+  padding: 12px 16px;
+  font-size: 16px;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  outline: none;
+  transition: border 0.3s ease, box-shadow 0.3s ease;
+}
+
+.input-field:focus {
+  border-color: #f58504;
+  box-shadow: 0 0 0 3px rgba(245, 133, 4, 0.15);
+}
+
+.input-error {
+  color: #e63946;
+  font-size: 14px;
+  margin-top: 6px;
+  display: block;
+  animation: fadeIn 0.3s ease-in;
+}
+
+.button {
+  width: 100%;
+  padding: 7px;
+  background-color: #f58504;
+  color: #fff;
+  font-size: 17px;
+  font-weight: 600;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.button:hover {
+  background-color: #d17102;
+  box-shadow: 0 6px 20px rgba(245, 133, 4, 0.3);
+  transform: translateY(-2px);
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

@@ -1,0 +1,136 @@
+.list-item-block-1 img {
+  width: 90px;
+  height: 90px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.list-item-block-1 {
+  flex: 0 0 100px;
+}
+
+.list-item-block-2 {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.list-item-block-2 div {
+  font-size: 1rem;
+  color: #333;
+  font-weight: 500;
+  text-transform: capitalize;
+}
+
+.list-item-block-2 .description {
+  font-size: 0.95rem;
+  font-weight: 400;
+  color: #666;
+}
+
+.list-item-block-2 button {
+  margin-top: 6px;
+  align-self: flex-start;
+  background-color: #ff6b35;
+  color: white;
+  border: none;
+  padding: 8px 14px;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: background-color 0.25s ease, transform 0.2s ease;
+}
+
+.list-item-block-2 button:hover {
+  background-color: #e85a1c;
+  transform: scale(1.03);
+}
+
+.list-item-block-3 {
+  flex: 0 0 90px;
+  text-align: right;
+  font-size: 1rem;
+  font-weight: bold;
+  color: #4e944f;
+}
+
+
+.total-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  background-color: #ffffff;
+  border-radius: 16px;
+  padding: 30px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+  font-family: 'Segoe UI', sans-serif;
+  animation: fadeInWrapper 0.6s ease;
+  max-width: 600px;
+  margin: 40px auto;
+}
+
+@keyframes fadeInWrapper {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.total-wrapper .block-1 {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.total-wrapper .row {
+  display: flex;
+  justify-content: space-between;
+  padding: 12px 16px;
+  font-size: 1.05rem;
+  color: #333;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  transition: background 0.3s ease;
+}
+
+.total-wrapper .row:hover {
+  background-color: #ffeede;
+}
+
+.total-wrapper .row span:first-child {
+  font-weight: 500;
+  color: #666;
+}
+
+.total-wrapper .row span:last-child {
+  font-weight: 600;
+  color: #222;
+}
+
+.total-wrapper .block-2 {
+  display: flex;
+  justify-content: center;
+}
+
+.total-wrapper .block-2 button {
+  padding: 14px 36px;
+  background-color: #ff6b35;
+  color: #fff;
+  border: none;
+  border-radius: 12px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.total-wrapper .block-2 button:hover {
+  background-color: #e85a1c;
+  transform: scale(1.05);
+  box-shadow: 0 4px 14px rgba(255, 107, 53, 0.25);
+}

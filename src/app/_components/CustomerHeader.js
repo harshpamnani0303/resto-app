@@ -1,66 +1,109 @@
 'use client'
-import Link from 'next/link';
-import React, { useEffect, useState } from 'react';
+import Link from "next/link"
+import { useRouter } from "next/navigation";
+import { useEffect, useState } from "react";
 
-const CustomerHeader = ({ cartData, removeCartData }) => {
-    const [cartNumber, setCartNumber] = useState(0);
+const CustomerHeader = (props) => {
 
-    const updateCart = (newCart) => {
-        localStorage.setItem('cart', JSON.stringify(newCart));
-        setCartNumber(newCart.length);
-    };
+    const userStorage = localStorage.getItem('user') && JSON.parse(localStorage.getItem('user'));
+    const cartStorage = localStorage.getItem('cart') && JSON.parse(localStorage.getItem('cart'));
+    const [user, setUser] = useState(userStorage ? userStorage : undefined)
+    const [cartNumber, setCartNumber] = useState(cartStorage?.length)
+    const [cartItem, setCartItem] = useState(cartStorage);
+    const router = useRouter();
+    console.log(userStorage);
 
-    // Load cart count on first load
+
+
+
     useEffect(() => {
-        const cart = JSON.parse(localStorage.getItem('cart')) || [];
-        setCartNumber(cart.length);
-    }, []);
 
-    // Handle Add to Cart
-    useEffect(() => {
-        if (!cartData) return;
+        if (props.cartData) {
+            console.log(props);
+            if (cartNumber) {
+                if (cartItem[0].resto_id != props.cartData.resto_id) {
+                    localStorage.removeItem('cart');
+                    setCartNumber(1);
+                    setCartItem([props.cartData])
+                    localStorage.setItem('cart', JSON.stringify([props.cartData]))
 
-        let cart = JSON.parse(localStorage.getItem('cart')) || [];
+                } else {
+                    let localCartItem = cartItem;
+                    localCartItem.push(JSON.parse(JSON.stringify(props.cartData)))
+                    setCartItem(localCartItem);
+                    setCartNumber(cartNumber + 1)
+                    localStorage.setItem('cart', JSON.stringify(localCartItem))
 
-        // Check if different restaurant
-        if (cart.length > 0 && cart[0].resto_id !== cartData.resto_id) {
-            cart = [cartData];
-            alert("Cart has been reset because you selected items from a different restaurant.");
-        } else {
-            // Avoid duplicates
-            const exists = cart.find(item => item._id === cartData._id);
-            if (!exists) {
-                cart.push(cartData);
+                }
+
+            } else {
+                setCartNumber(1)
+                setCartItem([props.cartData])
+                localStorage.setItem('cart', JSON.stringify([props.cartData]))
+
             }
         }
 
-        updateCart(cart);
-    }, [JSON.stringify(cartData)]); // Ensures effect runs even with same structure
+    }, [props.cartData])
 
-    // Handle Remove from Cart
     useEffect(() => {
-        if (!removeCartData) return;
+        if (props.removeCartData) {
+            let localCartItem = cartItem.filter((item) => {
+                return item._id != props.removeCartData
+            });
+            setCartItem(localCartItem);
+            setCartNumber(cartNumber - 1);
+            localStorage.setItem('cart', JSON.stringify(localCartItem))
+            if (localCartItem.length == 0 || props.removeCartData == true) {
+                setCartNumber(0);
+                localStorage.removeItem('cart')
+            }
+        }
+    }, [props.removeCartData])
 
-        let cart = JSON.parse(localStorage.getItem('cart')) || [];
-        cart = cart.filter(item => item._id !== removeCartData);
 
-        updateCart(cart);
-    }, [JSON.stringify(removeCartData)]); // Fix: stringified to track changes properly
+
+    const logout = () => {
+        localStorage.removeItem('user');
+        router.push('/user-auth')
+
+    }
 
     return (
-        <div className='header-wrapper'>
-            <div className='logo'>
-                <h1>logo</h1>
+        <div className="header-wrapper">
+            <div className="logo">
+                {/* <img
+                    style={{ width: 80 }}
+                    src="https://s.tmimgcdn.com/scr/1200x627/242400/food-delivery-custom-design-logo-template_242462-original.png"
+                    alt="FoodHub Logo"
+                /> */}
+                <span className="logo-text">FoodHub</span>
             </div>
+
             <ul>
-                <li><Link href="/">Home</Link></li>
-                <li><Link href="/">Login</Link></li>
-                <li><Link href="/">SignUp</Link></li>
-                <li><Link href="/">Cart ({cartNumber})</Link></li>
-                <li><Link href="/">Add Restaurant</Link></li>
+                <li><Link href="/">🏠 Home</Link></li>
+
+                <li>
+                    <Link href={cartNumber ? "/cart" : "#"}>🛒 Cart ({cartNumber || 0})</Link>
+                </li>
+                <li><Link href="/restaurant">🏪 Add Restaurant</Link></li>
+                <li><Link href="/deliverypartner">🚚 Delivery Partner</Link></li>
+
+                {user ? (
+                    <>
+                        <li><Link href="/myprofile">👤 {user?.name}</Link></li>
+                        <li><button onClick={logout}>🚪 Logout</button></li>
+                    </>
+                ) : (
+                    <>
+                        <li><Link href="/user-auth">🔐 Login</Link></li>
+                        <li><Link href="/user-auth">📝 SignUp</Link></li>
+                    </>
+                )}
             </ul>
         </div>
-    );
-};
 
-export default CustomerHeader;
+    )
+}
+
+export default CustomerHeader

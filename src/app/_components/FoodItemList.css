@@ -1,0 +1,116 @@
+h1 {
+  text-align: center;
+  margin-bottom: 30px;
+  font-size: 28px;
+  font-weight: 700;
+  color: #333;
+  animation: fadeInDown 0.5s ease;
+}
+
+table {
+  width: 100%;
+  max-width: 1000px;
+  margin: auto;
+  border-collapse: collapse;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  animation: fadeInUp 0.6s ease;
+  background: #fff;
+}
+
+thead {
+  background-color: #f58504;
+  color: #fff;
+  font-weight: bold;
+}
+
+thead td {
+  padding: 16px;
+  font-size: 16px;
+  text-align: left;
+}
+
+tbody tr {
+  transition: background-color 0.3s ease;
+}
+
+tbody tr:hover {
+  background-color: #fdf2e9;
+}
+
+tbody td {
+  padding: 14px 16px;
+  border-bottom: 1px solid #eee;
+  font-size: 15px;
+  color: #333;
+}
+
+td img {
+  width: 60px;
+  height: 60px;
+  object-fit: cover;
+  border-radius: 10px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+button {
+  padding: 8px 14px;
+  margin-right: 8px;
+  border: none;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+button:first-of-type {
+  background-color: #0070f3;
+  color: #fff;
+}
+
+button:first-of-type:hover {
+  background-color: #0057c2;
+}
+
+button:last-of-type {
+  background-color: #cf5b05;
+  color: #fff;
+}
+
+button:last-of-type:hover {
+  background-color: #e85a1c;
+}
+
+/* Empty message row */
+td[colspan='6'] {
+  text-align: center;
+  padding: 30px;
+  font-style: italic;
+  color: #777;
+  background-color: #f9f9f9;
+}
+
+/* Animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

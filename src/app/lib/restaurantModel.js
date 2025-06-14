@@ -11,3 +11,4 @@ const restaurantModel = new  mongoose.Schema({
 })
 
 export const restaurantSchema = mongoose.models.restaurants || mongoose.model("restaurants", restaurantModel)
+

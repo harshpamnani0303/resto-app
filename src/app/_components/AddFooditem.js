@@ -1,5 +1,5 @@
 import { useState } from "react";
-
+import './AddFooditem.css';
 const AddFooditem = (props) => {
     const [foodName, setFoodName] = useState("");
     const [price, setPrice] = useState("");

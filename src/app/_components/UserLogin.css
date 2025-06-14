@@ -1,0 +1,88 @@
+/* Container styling */
+.form-container {
+  max-width: 400px;
+  margin: 50px auto;
+  padding: 32px;
+  background: #ffffff;
+  border-radius: 16px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  animation: fadeInForm 0.6s ease-in-out;
+}
+
+/* Input Wrapper */
+.input-wrapper {
+  position: relative;
+  margin-bottom: 24px;
+}
+
+/* Floating Input Field */
+.input-field {
+  width: 100%;
+  padding: 14px 16px;
+  font-size: 16px;
+  border: 2px solid #ddd;
+  border-radius: 8px;
+  background: transparent;
+  outline: none;
+  transition: border-color 0.3s ease;
+}
+
+/* Label styling (Floating) */
+.input-label {
+  position: absolute;
+  top: 50%;
+  left: 16px;
+  transform: translateY(-50%);
+  background-color: #fff;
+  padding: 0 6px;
+  color: #999;
+  font-size: 16px;
+  transition: 0.3s ease;
+  pointer-events: none;
+}
+
+/* Focus state for input */
+.input-field:focus {
+  border-color: #f58504;
+}
+
+/* Move label when typing or focus */
+.input-field:focus + .input-label,
+.input-field:not(:placeholder-shown) + .input-label {
+  top: -8px;
+  left: 12px;
+  font-size: 12px;
+  color: #f58504;
+}
+
+/* Login Button */
+.button {
+  width: 100%;
+  padding: 7px;
+  background: #f58504;
+  color: white;
+  font-weight: 600;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.button:hover {
+  background: #e07202;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(245, 133, 4, 0.3);
+}
+
+/* Form animation */
+@keyframes fadeInForm {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

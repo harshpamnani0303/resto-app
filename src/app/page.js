@@ -7,81 +7,101 @@ import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 
 export default function Home() {
-
   const [locations, setLocations] = useState([]);
-  const [selectedLocation, setSelectedLocation] = useState("");
-  const [showLocation, setShowLocation] = useState(false);
   const [restaurants, setRestaurants] = useState([]);
+  const [selectedLocation, setSelectedLocation] = useState('');
+  const [showLocation, setShowLocation] = useState(false);
   const router = useRouter();
+
   useEffect(() => {
     loadLocations();
-    loadRestaurants();
-  }, []);
+    loadRestaurants()
+  }, [])
 
   const loadLocations = async () => {
-    let response = await fetch("http://localhost:3000/api/customer/locations");
-    response = await response.json();
+    let response = await fetch('http://localhost:3000/api/customer/locations');
+    response = await response.json()
     if (response.success) {
-      setLocations(response.result);
+      setLocations(response.result)
     }
-    console.log(response.result);
-
   }
 
   const loadRestaurants = async (params) => {
     let url = "http://localhost:3000/api/customer";
     if (params?.location) {
-      url = url + "?location=" + params.location;
-    }
-    else if (params?.restaurants) {
-      url = url + "?restaurant=" + params.restaurants;
+      url = url + "?location=" + params.location
+    } else if (params?.restaurant) {
+      url = url + "?restaurant=" + params.restaurant
     }
     let response = await fetch(url);
-    response = await response.json();
+    response = await response.json()
     if (response.success) {
-      setRestaurants(response.result);
+      setRestaurants(response.result)
     }
   }
 
+
   const handleListItem = (item) => {
-    setSelectedLocation(item);
-    setShowLocation(false);
-    loadRestaurants({ location: item });
+    setSelectedLocation(item)
+    setShowLocation(false)
+    loadRestaurants({ location: item })
   }
+  console.log(restaurants);
   return (
-    <main>
+    <main >
       <CustomerHeader />
       <div className="main-page-banner">
-        <h1>Food Delivery App</h1>
-        <div className="input-wrapper">
-          <input type="text" onClick={() => setShowLocation(true)} defaultValue={selectedLocation} className="select-input" placeholder="Select Place" />
+        <h1>🍔 Food Delivery App</h1>
 
-          <ul className="location-list">
-            {
-              showLocation && locations.map((item) => (
-                <li onClick={() => handleListItem(item)}>{item}</li>
-              ))
-            }
-          </ul>
-          <input type="text" className="search-input" onChange={(event)=>loadRestaurants({restaurants:event.target.value})} placeholder="Enter Food or Restaurant" />
+        <div className="input-wrapper">
+          <input
+            type="text"
+            onClick={() => setShowLocation(true)}
+            defaultValue={selectedLocation}
+            className="select-input"
+            placeholder="📍 Select Location"
+          />
+
+          {showLocation && (
+            <ul className="location-list">
+              {locations.map((item) => (
+                <li key={item} onClick={() => handleListItem(item)}>
+                  📍 {item}
+                </li>
+              ))}
+            </ul>
+          )}
+
+          <input
+            type="text"
+            className="search-input"
+            onChange={(event) => loadRestaurants({ restaurant: event.target.value })}
+            placeholder="🔍 Search for food or restaurants"
+          />
         </div>
       </div>
-      <div className="restaurant-listing-container">
+
+
+
+      <div className="restaurant-list-container">
         {
           restaurants.map((item) => (
-            <div key={item._id} onClick={()=>router.push("explore/"+item.restaurantName+"?id="+item._id)} className="restaurant-wrapper">
+            <div onClick={() => router.push('explore/' + item.name + "?id=" + item._id)} className="restaurant-wrapper">
               <div className="heading-wrapper">
-                <h3>{item.restaurantName}</h3>
-                <h5>Contact : {item.contact}</h5>
+                <h3>{item.name}</h3>
+                <h5>Contact:{item.contact}</h5>
               </div>
               <div className="address-wrapper">
-                <div>{item.city}</div>
-                <div className="address">{item.address} , Email : {item.email}</div>
+                <div>{item.city},</div>
+                <div className="address"> {item.address}, Email: {item.email}</div>
+
               </div>
             </div>
           ))
         }
       </div>
+
+      
       <Footer />
     </main>
   );

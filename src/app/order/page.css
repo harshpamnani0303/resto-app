@@ -1,0 +1,80 @@
+.total-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  background-color: #fff8f2;
+  border-radius: 16px;
+  padding: 30px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.07);
+  font-family: 'Segoe UI', sans-serif;
+  animation: fadeInTotal 0.6s ease;
+  max-width: 800px;
+  margin: 40px auto;
+}
+
+@keyframes fadeInTotal {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.total-wrapper h2 {
+  font-size: 1.4rem;
+  color: #ff6b35;
+  margin-top: 20px;
+  margin-bottom: 10px;
+  border-bottom: 2px solid #ffe2d1;
+  padding-bottom: 5px;
+}
+
+.total-wrapper .row {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 0;
+  font-size: 1.05rem;
+  color: #333;
+  border-bottom: 1px dashed #ddd;
+}
+
+.total-wrapper .row:last-child {
+  border-bottom: none;
+}
+
+.total-wrapper .row span:first-child {
+  color: #999;
+  font-weight: 500;
+}
+
+.total-wrapper .row span:last-child {
+  color: #222;
+  font-weight: 600;
+}
+
+.total-wrapper .block-2 {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.total-wrapper .block-2 button {
+  padding: 14px 36px;
+  background-color: #ff6b35;
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.total-wrapper .block-2 button:hover {
+  background-color: #e85a1c;
+  transform: scale(1.05);
+  box-shadow: 0 4px 12px rgba(255, 107, 53, 0.3);
+}

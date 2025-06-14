@@ -40,6 +40,6 @@
 .input-error{
     position: absolute;
     padding: 8px;
-    color: red;
+    color: #cf5b05;
     font-size: 15px;
 }

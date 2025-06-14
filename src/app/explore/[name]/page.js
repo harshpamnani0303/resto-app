@@ -3,6 +3,7 @@
 import CustomerHeader from '@/app/_components/CustomerHeader';
 import React, { useEffect, useState } from 'react';
 import { useParams, useSearchParams } from 'next/navigation';
+import './style.css'; // Assuming you have a CSS file for styles
 
 const Page = () => {
   const { name } = useParams();
@@ -52,20 +53,20 @@ const Page = () => {
   };
 
   const addToCart = (item) => {
-        let localCartIds=cartIds;
-        localCartIds.push(item._id);
-        setCartIds(localCartIds)
-        setCartData(item)
-        setRemoveCartData();
+    let localCartIds = cartIds;
+    localCartIds.push(item._id);
+    setCartIds(localCartIds)
+    setCartData(item)
+    setRemoveCartData();
 
-    }
+  }
 
-    const removeFromCart=(id)=>{
-        setRemoveCartData(id);
-        var localIds=cartIds.filter(item=>item!=id);
-        setCartData()
-        setCartIds(localIds)
-    }
+  const removeFromCart = (id) => {
+    setRemoveCartData(id);
+    var localIds = cartIds.filter(item => item != id);
+    setCartData()
+    setCartIds(localIds)
+  }
 
   return (
     <div>
@@ -75,14 +76,18 @@ const Page = () => {
         <h1>{decodeURIComponent(name)}</h1>
       </div>
 
-      <div className="deatil-wrapper">
-        <h3>Contact : {restaurantDetails?.contact}</h3>
-        <h3>City : {restaurantDetails?.city}</h3>
-        <h3>Address : {restaurantDetails?.address}</h3>
-        <h3>Email : {restaurantDetails?.email}</h3>
+
+
+      <div className="details-wrapper">
+        <h4><span>📞 Contact:</span> {restaurantDetails?.contact}</h4>
+        <h4><span>🌆 City:</span> {restaurantDetails?.city}</h4>
+        <h4><span>📍 Address:</span> {restaurantDetails?.address}</h4>
+        <h4><span>📧 Email:</span> {restaurantDetails?.email}</h4>
       </div>
 
-      <div className='food-item-wrapper'>
+
+
+      <div className='food-list-wrapper'>
         {foodItems.length > 0 ? (
           foodItems.map(item => (
             <div className='list-item' key={item._id}>
